@@ -1,11 +1,11 @@
 import './App.css';
 import React, {useEffect, useState} from 'react'; 
 import { ScatterChart } from '@mui/x-charts/ScatterChart';
+import embs from './assets/tsne_embeddings_2d.json'
+import clusters from './assets/clusters.json'
+import colorsJson from './assets/colors.json'
 
 function App() {
-  var embs = require('./assets/tsne_embeddings_2d.json');
-  const clusters = require('./assets/clusters.json')
-  const colorsJson = require('./assets/colors.json')
 
   const allColors = Object.values(colorsJson);
   const uniqueColors = Array.from(new Set(allColors));
@@ -15,7 +15,6 @@ function App() {
 
   const [soundPath, setSoundPath] = useState(); 
   const [data, setData] = useState(Object.entries(embs).map(([key, pos]) => ({ x: pos[0], y: pos[1], z: clusters[key], id: key})));
-
 
   const[serverURL, setServerURL] = useState('http://127.0.0.1:5000'); 
 
@@ -55,7 +54,7 @@ function App() {
       className="App"
       style={{ backgroundColor: '#0a0a0a'}}
       >
-      <h1>{soundPath}</h1>
+      {/* <h1>{soundPath}</h1> */}
       <ScatterChart 
         width={2000}
         height={2000}

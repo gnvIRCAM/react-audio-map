@@ -1,4 +1,7 @@
 Flask
+flask_cors
 absl-py
 scikit-learn
 matplotlib
+soundfile
+pydub
